@@ -61,6 +61,9 @@ notes: >-
                 }
             ],
             "classes": "js-cookies-accepted",
+            "attributes": {
+              "tabindex": "-1"
+            },
             "hidden": true
         },
         {
@@ -74,6 +77,9 @@ notes: >-
                 }
             ],
             "classes": "js-cookies-rejected",
+            "attributes": {
+              "tabindex": "-1"
+            },
             "hidden": true
         }
     ]
@@ -193,10 +199,8 @@ notes: >-
     function showBanner(banner) {
         questionBanner.setAttribute('hidden', 'hidden')
         banner.removeAttribute('hidden')
-        banner.style.display = "block"
 
         // Shift focus to the banner
-        banner.setAttribute('tabindex', '-1')
         banner.focus()
 
         banner.addEventListener('blur', function () {
