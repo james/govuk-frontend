@@ -10,7 +10,7 @@
       {% set classNames = classNames + " " + message.classes %}
     {% endif %}
 
-    <div class="{{classNames}}" {%- if message.role %} role="{{message.role}}" aria-describedby="test-id"{% endif %}
+    <div class="{{classNames}}" {%- if message.role %} role="{{message.role}}" aria-labelledby="test-id"{% endif %}
     {%- for attribute, value in message.attributes %} {{attribute}}="{{value}}"{% endfor %}
     {% if message.hidden %} hidden{% endif %}>
 
