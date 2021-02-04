@@ -61,9 +61,6 @@ notes: >-
                 }
             ],
             "classes": "js-cookies-accepted",
-            "attributes": {
-              "tabindex": "-1"
-            },
             "hidden": true
         },
         {
@@ -77,9 +74,6 @@ notes: >-
                 }
             ],
             "classes": "js-cookies-rejected",
-            "attributes": {
-              "tabindex": "-1"
-            },
             "hidden": true
         }
     ]
@@ -201,6 +195,7 @@ notes: >-
         banner.removeAttribute('hidden')
 
         // Shift focus to the banner
+        banner.setAttribute('tabindex', '-1')
         banner.focus()
 
         banner.addEventListener('blur', function () {
