@@ -10,7 +10,7 @@
       {% set classNames = classNames + " " + message.classes %}
     {% endif %}
 
-    <div class="{{classNames}}" {%- if message.role %} role="{{message.role}}" aria-labelledby="test-id"{% endif %}
+    <div class="{{classNames}}" {%- if message.role %} role="{{message.role}}"{% endif %} {%- if message.id %} aria-describedby="{{message.id}}"{% endif %}
     {%- for attribute, value in message.attributes %} {{attribute}}="{{value}}"{% endfor %}
     {% if message.hidden %} hidden{% endif %}>
 
@@ -26,7 +26,7 @@
         </h2>
         {% endif %}
 
-        <div class="govuk-cookie-banner__content" {%- if message.role %}id="test-id"{% endif %}>
+        <div class="govuk-cookie-banner__content" {%- if message.id %}id="{{ message.id }}"{% endif %}>
           {%- if message.html -%}
             {{ message.html | safe }}
           {%- elif message.text -%}
