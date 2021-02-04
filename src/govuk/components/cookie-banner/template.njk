@@ -10,9 +10,9 @@
       {% set classNames = classNames + " " + message.classes %}
     {% endif %}
 
-    <div class="{{classNames}}" {%- if message.role %} role="{{message.role}}"{% endif %}
+    <div class="{{classNames}}"
     {%- for attribute, value in message.attributes %} {{attribute}}="{{value}}"{% endfor %}
-    {% if message.hidden %} hidden style="display: none;"{% endif %}>
+    {% if message.hidden %} hidden{% endif %}>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
@@ -30,7 +30,7 @@
           {%- if message.html -%}
             {{ message.html | safe }}
           {%- elif message.text -%}
-            <p class="govuk-body">{{ message.text }}</p>
+            <p class="govuk-body" {%- if message.role %} role="{{message.role}}"{% endif %}>{{ message.text }}</p>
           {%- endif -%}
         </div>
       </div>
