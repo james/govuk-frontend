@@ -10,7 +10,7 @@
       {% set classNames = classNames + " " + message.classes %}
     {% endif %}
 
-    <div class="{{classNames}}"
+    <div class="{{classNames}}" {%- if message.role %} role="{{message.role}}"{% endif %}
     {%- for attribute, value in message.attributes %} {{attribute}}="{{value}}"{% endfor %}
     {% if message.hidden %} hidden{% endif %}>
 
@@ -26,13 +26,13 @@
         </h2>
         {% endif %}
 
-        <span class="govuk-cookie-banner__content" {%- if message.role %} role="{{message.role}}"{% endif %}>
+        <div class="govuk-cookie-banner__content">
           {%- if message.html -%}
             {{ message.html | safe }}
           {%- elif message.text -%}
-            <p class="govuk-body">{{ message.text }}</p>
+            <p class="govuk-body" {%- if message.role %} role="{{message.role}}"{% endif %}>{{ message.text }}</p>
           {%- endif -%}
-        </span>
+        </div>
       </div>
     </div>
 
