@@ -20,10 +20,6 @@ params:
   required: true
   description: Required. The different messages you can pass into the cookie banner. For example, the cookie message and the replacement message.
   params:
-    - name: id
-      type: string
-      required: false
-      description: Used if role set to `alert` for aria-describedby
     - name: headingText
       type: string
       required: false

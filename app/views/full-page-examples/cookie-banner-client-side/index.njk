@@ -53,7 +53,6 @@ notes: >-
         {
             "text": "Your cookie preferences have been saved. You have accepted cookies.",
             "role": "alert",
-            "id": "accepted-message",
             "actions": [
                 {
                     "text": "Hide this message",
@@ -67,7 +66,6 @@ notes: >-
         {
             "text": "Your cookie preferences have been saved. You have rejected cookies.",
             "role": "alert",
-            "id": "rejected-message",
             "actions": [
                 {
                     "text": "Hide this message",
@@ -193,7 +191,10 @@ notes: >-
     var cookieBanner = document.querySelector('.js-cookies-banner')
 
     function showBanner(banner) {
+        questionBanner.style.display = 'none';
         questionBanner.setAttribute('hidden', 'hidden')
+
+        banner.style.display = 'block'
         banner.removeAttribute('hidden')
 
         // Shift focus to the banner
