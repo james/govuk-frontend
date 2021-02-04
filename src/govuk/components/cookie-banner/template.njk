@@ -26,13 +26,13 @@
         </h2>
         {% endif %}
 
-        <div class="govuk-cookie-banner__content">
+        <span class="govuk-cookie-banner__content" {%- if message.role %} role="{{message.role}}"{% endif %}>
           {%- if message.html -%}
             {{ message.html | safe }}
           {%- elif message.text -%}
-            <p class="govuk-body" {%- if message.role %} role="{{message.role}}"{% endif %}>{{ message.text }}</p>
+            <p class="govuk-body">{{ message.text }}</p>
           {%- endif -%}
-        </div>
+        </span>
       </div>
     </div>
 
