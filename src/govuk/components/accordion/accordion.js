@@ -223,30 +223,30 @@ var helper = {
 
 // Set the state of the accordions in sessionStorage
 Accordion.prototype.storeState = function ($section) {
-  if (this.browserSupportsSessionStorage) {
-    // We need a unique way of identifying each content in the accordion. Since
-    // an `#id` should be unique and an `id` is required for `aria-` attributes
-    // `id` can be safely used.
-    var $button = $section.querySelector('.' + this.sectionButtonClass)
+  // if (this.browserSupportsSessionStorage) {
+  //   // We need a unique way of identifying each content in the accordion. Since
+  //   // an `#id` should be unique and an `id` is required for `aria-` attributes
+  //   // `id` can be safely used.
+  //   var $button = $section.querySelector('.' + this.sectionButtonClass)
 
-    if ($button) {
-      var contentId = $button.getAttribute('aria-controls')
-      var contentState = $button.getAttribute('aria-expanded')
+  //   if ($button) {
+  //     var contentId = $button.getAttribute('aria-controls')
+  //     var contentState = $button.getAttribute('aria-expanded')
 
-      if (typeof contentId === 'undefined' && (typeof console === 'undefined' || typeof console.log === 'undefined')) {
-        console.error(new Error('No aria controls present in accordion section heading.'))
-      }
+  //     if (typeof contentId === 'undefined' && (typeof console === 'undefined' || typeof console.log === 'undefined')) {
+  //       console.error(new Error('No aria controls present in accordion section heading.'))
+  //     }
 
-      if (typeof contentState === 'undefined' && (typeof console === 'undefined' || typeof console.log === 'undefined')) {
-        console.error(new Error('No aria expanded present in accordion section heading.'))
-      }
+  //     if (typeof contentState === 'undefined' && (typeof console === 'undefined' || typeof console.log === 'undefined')) {
+  //       console.error(new Error('No aria expanded present in accordion section heading.'))
+  //     }
 
-      // Only set the state when both `contentId` and `contentState` are taken from the DOM.
-      if (contentId && contentState) {
-        window.sessionStorage.setItem(contentId, contentState)
-      }
-    }
-  }
+  //     // Only set the state when both `contentId` and `contentState` are taken from the DOM.
+  //     if (contentId && contentState) {
+  //       window.sessionStorage.setItem(contentId, contentState)
+  //     }
+  //   }
+  // }
 }
 
 // Read the state of the accordions from sessionStorage
